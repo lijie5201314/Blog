@@ -3,8 +3,9 @@
 from read_statistics.utils import get_seven_days_read_data, get_today_hot_data, get_yesterday_hot_data, get_7_days_hot_blogs
 from django.contrib.contenttypes.models import ContentType
 from django.shortcuts import render
-from blog.models import Blog
+from blog.models import Blog, BlogType
 from django.core.cache import cache
+from django.db.models import Count
 
 
 def home(request):
@@ -17,7 +18,11 @@ def home(request):
         hot_blogs_for_7_days = get_7_days_hot_blogs()
         cache.set('hot_blogs_for_7_days', hot_blogs_for_7_days, 3600)
 
+    blog_types_list = BlogType.objects.annotate(blog_count=Count('blog'))
+
     context = {}
+    context['blog_types'] = blog_types_list
+    context['blog_of_all_nums'] = Blog.objects.all().count()
     context['read_nums'] = read_nums
     context['dates'] = dates
     context['today_hot_data'] = get_today_hot_data(content_type)

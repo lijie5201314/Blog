@@ -15,6 +15,13 @@
 
 
 {% block content %}
+<div class="header-banner">
+    <div class="container">
+        <h1>我的博客</h1>
+        <p>可通过筛选器<span class="hidden-xs">快速找到</span>对应类别的博文</p>
+        <p>喜欢就收藏一下吧</p>
+    </div>
+</div>
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
@@ -23,9 +30,9 @@
                     <div class="panel-body">
                         {% for blog in page_of_blogs.object_list %}
                             <div class="blog">
-                                <h3><a href="{% url 'blog:blog_detail' blog.pk %}">{{ blog.title }}</a></h3>
+                                <h3><a href="{% url 'blog:blog_detail' blog.pk %}" target="_blank">{{ blog.title }}</a></h3>
                                 <p class="blog-info">
-                                    <span class="glyphicon glyphicon-tag"></span> <a href="{% url 'blog:blog_with_type' blog.blog_type.pk %}">{{ blog.blog_type }}</a>&nbsp;&nbsp;
+                                    <span class="glyphicon glyphicon-tag"></span> <a href="{% url 'blog:blog_with_type' blog.blog_type.pk %}" target="_blank">{{ blog.blog_type }}</a>&nbsp;&nbsp;
                                     <span class="glyphicon glyphicon-time"></span> {{ blog.created_time|date:'Y-m-d' }}&nbsp;&nbsp;
                                     阅读：({{ blog.get_read_num }})&nbsp;&nbsp;
                                     评论：({% get_comment_count blog %})&nbsp;&nbsp;

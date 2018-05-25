@@ -14,20 +14,10 @@ ul.navbar-right {
 }
 
 
-.header-banner{ text-align: center; min-height: 257px; position: relative; margin-top: -30px; padding-top: 75px; margin-bottom: 20px; background-color: #4F5893;}
-.header-banner h1{ font-size: 3em; color: #fff; margin-bottom: 12px;}
-.header-banner p{ font-weight: 300; line-height: 1.4; font-size: 1.5em; color:#B9BFE4; margin: 5px 0;}
-.header-banner .total_num{ display: inline-block; margin-left: 0.5em; font-size: 80%; padding: 0.2em 0.3em 0.1em; background-color: #fff; color: #555; font-weight: bold; border-radius: 4px;}
 
-@media (min-width: 1200px){
-    .header-banner{
-        min-height: 300px;
-        padding-top: 90px;
-    }
-}
 
 /*页尾*/
 .page-bottom{ width:100%; clear:both; background: #e7e7e7; margin-top: 2.5em; padding: 1em 0 0; color: #777;}
 .page-bottom-abs{ position:absolute; bottom:0;}/*在js中 还没写*/
 .page-bottom .title{ color: #424242; font-weight: bold; border-bottom: 1px solid #aaa; padding-bottom: 7px; margin-bottom: 1em; margin-top: 1em;}
-.page-bottom .copyright{ text-align: center; padding: 0.5em 0; margin-top: 1.5em; background: #4F5893; color: #e7e7e7;}
+.page-bottom .copyright{ text-align: center; padding: 0.5em 0; margin-top: 1.5em; background: beige; color: green;}

@@ -11,15 +11,21 @@
 {% block nav_home_active %}active{% endblock %}
 
 {% block content %}
-{#    <h3 class="home-content">欢迎访问我的网站</h3>#}
+<div class="header-banner">
+    <div class="container">
+        <h1>LJ Blog</h1>
+        <p>尚未佩妥剑，<span class="hidden-xs">转眼便江湖。</span>愿历尽千帆，归来仍少年</p>
+        <p>江湖人的博客</p>
+    </div>
+</div>
     <div class="container">
         <div class="content-item">
             <h3 class="content-item-title">
                 <span class="glyphicon glyphicon-pencil"></span>
                 <span>博客</span>
                 <span class="content-more">
-                    共192篇博客
-                    <a href="http://yshblog.com/blog/">more&gt;</a>
+                    共{{ blog_of_all_nums }}篇博客
+                    <a href="{% url 'blog:blog_list' %}">more&gt;</a>
                 </span>
             </h3>
             <div class="row">
@@ -27,66 +33,15 @@
                 <div class="home-block">
                     <h4 class="home-block-title">博客分类</h4>
                     <ul class="list">
-                            <li>
-                                <a href="http://yshblog.com/blog/?tag=1" target="_blank">我的网站搭建</a>
-                                <span>(56)</span>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/?tag=6" target="_blank">Python</a>
-                                <span>(31)</span>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/?tag=8" target="_blank">Django</a>
-                                <span>(27)</span>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/?tag=2" target="_blank">Excel</a>
-                                <span>(18)</span>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/?tag=10" target="_blank">VSTO</a>
-                                <span>(15)</span>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/?tag=3" target="_blank">数据库</a>
-                                <span>(12)</span>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/?tag=12" target="_blank">机器学习</a>
-                                <span>(11)</span>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/?tag=4" target="_blank">vb/vba</a>
-                                <span>(8)</span>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/?tag=9" target="_blank">Linux&amp;服务器</a>
-                                <span>(7)</span>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/?tag=7" target="_blank">硬件</a>
-                                <span>(5)</span>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/?tag=11" target="_blank">Web前端</a>
-                                <span>(5)</span>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/?tag=5" target="_blank">C#</a>
-                                <span>(3)</span>
-                            </li>
-
+                        {% for blog_type in blog_types %}
+                                <li>
+                                    <a href="{% url 'blog:blog_with_type' blog_type.pk %}">
+                                        {{ blog_type.type_name }}({{ blog_type.blog_count }})
+                                    </a>
+                                </li>
+                            {% empty %}
+                                <li>暂无博客分类</li>
+                            {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -97,7 +52,7 @@
                     <div class="read-nav">
                         <div class="read-list">
                             <ul class="nav nav-tabs" role="tablist">
-                                <li class="active"><a href="javascript:void(0);">公众号</a></li>
+                                <li class="active"><a href="javascript:void(0);">联系我</a></li>
                                 <li><a href="javascript:void(0);">趋势图</a></li>
                                 <li><a href="javascript:void(0);">昨日阅读榜</a></li>
                                 <li><a href="javascript:void(0);">Django2.0教程</a></li>
@@ -109,7 +64,7 @@
                         <div class="read-content-item">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img style="width: 100%; max-width: 15em;" src="">
+                                    <img style="width: 75%; max-width: 15em;" src="{% static 'blog/img/QRcode.jpg' %}">
                                 </div>
                                 <div class="col-sm-8">
                                     <h4 style="margin-bottom: 0em;margin-top: 1em;font-weight: bolder;">
@@ -232,116 +187,10 @@
                 </div>
             </div>
         </div>
-            <div class="row">
-                 <div class="col-sm-4">
-                     <div class="home-block">
-                        <h4 class="home-block-title">最新发表</h4>
-                        <ul class="list">
-                        <li><a href="http://yshblog.com/blog/193" target="_blank">django-ckeditor后台富文本编辑器</a></li>
 
-                            <li><a href="http://yshblog.com/blog/192" target="_blank">MySQL在Linux自动定时备份功能</a></li>
-
-                            <li><a href="http://yshblog.com/blog/191" target="_blank">Django查询对比其他字段</a></li>
-
-                            <li><a href="http://yshblog.com/blog/190" target="_blank">Apache反向代理处理js跨域问题</a></li>
-
-                            <li><a href="http://yshblog.com/blog/189" target="_blank">tastypie自定义链接使用obj_create方法</a></li>
-
-                            <li><a href="http://yshblog.com/blog/188" target="_blank">tastypie自定义访问链接</a></li>
-
-                            <li><a href="http://yshblog.com/blog/187" target="_blank">充分利用Excel的布尔值</a></li>
-
-                            <li><a href="http://yshblog.com/blog/185" target="_blank">tastypie中model之间的关系</a></li>
-
-                            <li><a href="http://yshblog.com/blog/184" target="_blank">初步使用tastypie的体悟</a></li>
-
-                            <li><a href="http://yshblog.com/blog/183" target="_blank">Excel数组公式入门</a></li>
-
-                            <li><a href="http://yshblog.com/blog/182" target="_blank">Django测试驱动开发</a></li>
-
-                            <li><a href="http://yshblog.com/blog/181" target="_blank">scp远程传输文件命令</a></li>
-
-                            <li><a href="http://yshblog.com/blog/180" target="_blank">我的网站搭建(第56天) 用户登录注册信息加密</a></li>
-
-                            <li><a href="http://yshblog.com/blog/179" target="_blank">Django模板设置全局变量(默认变量)</a></li>
-
-                        </ul>
-                    </div>
-                </div>
-                 <div class="col-sm-4">
-                    <div class="home-block">
-                        <h4 class="home-block-title">最新推荐</h4>
-                            <ul class="list">
-
-                            <li><a href="http://yshblog.com/blog/193" target="_blank">django-ckeditor后台富文本编辑器</a></li>
-
-                            <li><a href="http://yshblog.com/blog/190" target="_blank">Apache反向代理处理js跨域问题</a></li>
-
-                            <li><a href="http://yshblog.com/blog/184" target="_blank">初步使用tastypie的体悟</a></li>
-
-                            <li><a href="http://yshblog.com/blog/182" target="_blank">Django测试驱动开发</a></li>
-
-                            <li><a href="http://yshblog.com/blog/180" target="_blank">我的网站搭建(第56天) 用户登录注册信息加密</a></li>
-
-                            <li><a href="http://yshblog.com/blog/178" target="_blank">Django拆分app为多个小app</a></li>
-
-                            <li><a href="http://yshblog.com/blog/174" target="_blank">我的网站搭建(第55天) 站内消息通知</a></li>
-
-                            <li><a href="http://yshblog.com/blog/171" target="_blank">Python实现归并排序算法</a></li>
-
-                            <li><a href="http://yshblog.com/blog/170" target="_blank">Python实现快速排序算法</a></li>
-
-                            <li><a href="http://yshblog.com/blog/165" target="_blank">服务器使用Supervisor后台运行Celery</a></li>
-
-                            <li><a href="http://yshblog.com/blog/164" target="_blank">Django Celery定时任务和时间设置</a></li>
-
-                            <li><a href="http://yshblog.com/blog/163" target="_blank">Django初步使用Celery</a></li>
-
-                            <li><a href="http://yshblog.com/blog/159" target="_blank">ContentTypes及其QuerySet查询</a></li>
-
-                            <li><a href="http://yshblog.com/blog/157" target="_blank">QuerySet查询基础</a></li>
-
-                        </ul>
-                    </div>
-                </div>
-                 <div class="col-sm-4">
-                    <div class="home-block">
-                    <h4 class="home-block-title">随机推荐</h4>
-                    <ul class="list">
-
-                            <li><a href="http://yshblog.com/blog/30" target="_blank">Excel vba 网抓天气预报</a></li>
-
-                            <li><a href="http://yshblog.com/blog/176" target="_blank">解决python安装pycurl的问题</a></li>
-
-                            <li><a href="http://yshblog.com/blog/60" target="_blank">我的网站搭建(第23天) 第三方登录：QQ</a></li>
-
-                            <li><a href="http://yshblog.com/blog/135" target="_blank">我的网站搭建(第47天) 修改评论列表的样式</a></li>
-
-                            <li><a href="http://yshblog.com/blog/122" target="_blank">Python如何开发桌面软件</a></li>
-
-                            <li><a href="http://yshblog.com/blog/53" target="_blank">我对Python装饰器的理解</a></li>
-
-                            <li><a href="http://yshblog.com/blog/166" target="_blank">我的网站搭建(第53天) 定时刷新服务器缓存</a></li>
-
-                            <li><a href="http://yshblog.com/blog/125" target="_blank">Python日志管理(logging模块)</a></li>
-
-                            <li><a href="http://yshblog.com/blog/102" target="_blank">主板给HDMI显示器供电</a></li>
-
-                            <li><a href="http://yshblog.com/blog/6" target="_blank">我的网站搭建(第6天) 评论Ajax提交</a></li>
-
-                            <li><a href="http://yshblog.com/blog/155" target="_blank">Redis在CentOS和Windows安装过程</a></li>
-
-                            <li><a href="http://yshblog.com/blog/131" target="_blank">我的网站搭建(第44天) 添加头像字段</a></li>
-
-                            <li><a href="http://yshblog.com/blog/180" target="_blank">我的网站搭建(第56天) 用户登录注册信息加密</a></li>
-
-                            <li><a href="http://yshblog.com/blog/61" target="_blank">Python2和3兼容写法</a></li>
-
-                    </ul>
-                    </div>
-                </div>
-            </div>
         </div>
+
+
         <div class="content-item">
             <h3 class="content-item-title">
                 <span class="glyphicon glyphicon-fire"></span>
@@ -351,276 +200,59 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="home-block">
-                        <h4 class="home-block-title">周榜</h4>
+                        <h4 class="home-block-title">今天热门博客</h4>
                         <ul class="list">
-
+                            {% for hot_data in today_hot_data %}
                                 <li>
-                                    <a href="http://yshblog.com/blog/193" target="_blank">
-                                        django-ckeditor后台富文本编辑器
+                                    <span class="glyphicon glyphicon-fire"></span>
+                                    <span class="read-num">{{ hot_data.read_num }}</span>
+                                    <a href="{% url 'blog:blog_detail' hot_data.content_object.pk %}">
+                                        {{ hot_data.content_object.title }}
                                     </a>
                                 </li>
 
-                                <li>
-                                    <a href="http://yshblog.com/blog/117" target="_blank">
-                                        Python生成pyd文件
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/148" target="_blank">
-                                        Python爬虫入门 (看这篇就够了)
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/44" target="_blank">
-                                        以图搜图(二)：Python实现pHash算法
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/156" target="_blank">
-                                        我的网站搭建(第52天) 使用Redis缓存提速
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/163" target="_blank">
-                                        Django初步使用Celery
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/1" target="_blank">
-                                        我的网站搭建(第1天) Hello Django
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/40" target="_blank">
-                                        Python读写docx文件
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/104" target="_blank">
-                                        Python的json模块基本用法
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/41" target="_blank">
-                                        Python读写utf-8的文本文件
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/52" target="_blank">
-                                        Django点赞功能实现
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/164" target="_blank">
-                                        Django Celery定时任务和时间设置
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/105" target="_blank">
-                                        Python轻松实现排列和组合
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/33" target="_blank">
-                                        Python快递查询
-                                    </a>
-                                </li>
-
+                            {% empty %}
+                                <li>今天暂时没有热门博客</li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="home-block">
-                        <h4 class="home-block-title">月榜</h4>
+                        <h4 class="home-block-title">昨天热门博客</h4>
                         <ul class="list">
-
+                            {% for hot_data in yesterday_hot_data %}
                                 <li>
-                                    <a href="http://yshblog.com/blog/117" target="_blank">
-                                        Python生成pyd文件
+                                    <span class="glyphicon glyphicon-fire"></span>
+                                    <span class="read-num">{{ hot_data.read_num }}</span>
+                                    <a href="{% url 'blog:blog_detail' hot_data.content_object.pk %}">
+                                        {{ hot_data.content_object.title }}
                                     </a>
                                 </li>
 
-                                <li>
-                                    <a href="http://yshblog.com/blog/193" target="_blank">
-                                        django-ckeditor后台富文本编辑器
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/148" target="_blank">
-                                        Python爬虫入门 (看这篇就够了)
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/44" target="_blank">
-                                        以图搜图(二)：Python实现pHash算法
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/156" target="_blank">
-                                        我的网站搭建(第52天) 使用Redis缓存提速
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/104" target="_blank">
-                                        Python的json模块基本用法
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/1" target="_blank">
-                                        我的网站搭建(第1天) Hello Django
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/41" target="_blank">
-                                        Python读写utf-8的文本文件
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/163" target="_blank">
-                                        Django初步使用Celery
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/40" target="_blank">
-                                        Python读写docx文件
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/105" target="_blank">
-                                        Python轻松实现排列和组合
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/164" target="_blank">
-                                        Django Celery定时任务和时间设置
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/16" target="_blank">
-                                        为Django网站添加favicon.ico图标
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="http://yshblog.com/blog/52" target="_blank">
-                                        Django点赞功能实现
-                                    </a>
-                                </li>
-
+                            {% empty %}
+                                <li>昨天暂时没有热门博客</li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-4">
                 <div class="home-block">
-                    <h4 class="home-block-title">总榜</h4>
+                    <h4 class="home-block-title">周榜</h4>
                     <ul class="list">
-
+                        <ul>
+                        {% for hot_blog in hot_blogs_for_7_days %}
                             <li>
-                                <a href="http://yshblog.com/blog/5" target="_blank">
-                                    我的网站搭建(第5天) Django评论库
+                                <span class="glyphicon glyphicon-fire"></span>
+                                <span class="read-num">{{ hot_blog.read_num_sum }}</span>
+                                <a href="{% url 'blog:blog_detail' hot_blog.id %}">
+                                    {{ hot_blog.title }}
                                 </a>
                             </li>
 
-                            <li>
-                                <a href="http://yshblog.com/blog/44" target="_blank">
-                                    以图搜图(二)：Python实现pHash算法
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/40" target="_blank">
-                                    Python读写docx文件
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/6" target="_blank">
-                                    我的网站搭建(第6天) 评论Ajax提交
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/117" target="_blank">
-                                    Python生成pyd文件
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/43" target="_blank">
-                                    以图搜图(一)：Python实现dHash算法
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/16" target="_blank">
-                                    为Django网站添加favicon.ico图标
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/104" target="_blank">
-                                    Python的json模块基本用法
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/41" target="_blank">
-                                    Python读写utf-8的文本文件
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/148" target="_blank">
-                                    Python爬虫入门 (看这篇就够了)
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/1" target="_blank">
-                                    我的网站搭建(第1天) Hello Django
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/164" target="_blank">
-                                    Django Celery定时任务和时间设置
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/42" target="_blank">
-                                    Python读写XML文档(xml.dom方式)
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="http://yshblog.com/blog/105" target="_blank">
-                                    Python轻松实现排列和组合
-                                </a>
-                            </li>
+                        {% empty %}
+                            <li>七天内暂时没有热门博客</li>
+                        {% endfor %}
 
                     </ul>
                 </div>
@@ -633,54 +265,7 @@
 
 {#    <!-- 图表容器 DOM -->#}
 {#    <div id="container"></div>#}
-    <!-- 今天24小时内的热门博客-->
-    <div class="hot-date">
-        <h3>今天热门博客</h3>
-            <ul>
-                {% for hot_data in today_hot_data %}
-                    <li>
-                        <a href="{% url 'blog:blog_detail' hot_data.content_object.pk %}">
-                            {{ hot_data.content_object.title }}
-                        </a>(热度：{{ hot_data.read_num }})
-                    </li>
 
-                {% empty %}
-                    <li>今天暂时没有热门博客</li>
-                {% endfor %}
-            </ul>
-    </div>
-
-    <div class="hot-date">
-        <!-- 昨天24小时内的热门博客-->
-        <h3>昨天热门博客</h3>
-            <ul>
-                {% for hot_data in yesterday_hot_data %}
-                    <li>
-                        <a href="{% url 'blog:blog_detail' hot_data.content_object.pk %}">
-                            {{ hot_data.content_object.title }}
-                        </a>(热度：{{ hot_data.read_num }})
-                    </li>
-
-                {% empty %}
-                    <li>昨天暂时没有热门博客</li>
-                {% endfor %}
-            </ul>
-    </div>
-    <div class="hot-date">
-        <h3>七天热门博客</h3>
-            <ul>
-                {% for hot_blog in hot_blogs_for_7_days %}
-                    <li>
-                        <a href="{% url 'blog:blog_detail' hot_blog.id %}">
-                            {{ hot_blog.title }}
-                        </a>(热度：{{ hot_blog.read_num_sum }})
-                    </li>
-
-                {% empty %}
-                    <li>昨天暂时没有热门博客</li>
-                {% endfor %}
-            </ul>
-    </div>
 
     <script type="text/javascript">
         /*绑定切换排行榜页面*/
