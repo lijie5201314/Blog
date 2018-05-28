@@ -96,3 +96,68 @@ div.like .active {
         padding-top: 90px;
     }
 }
+
+/*博文页面*/
+.blog_header{ overflow: hidden; padding: 1em 0em 0em 1em;}
+.blog_header h3{ margin-top:10px;}
+.blog_header h3{ color: #0d56a6;}
+.blog_header li{ float: left; padding-right: 0.7em; font-size: small;}
+
+.blog_content{ padding: 1em 1em 0;}
+.blog_content p{ text-indent: 2em; margin: 5px 0; line-height: 1.6; font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;}
+.blog_content .badge{ text-indent: 0;}
+.blog_content img{ display:block; height:auto; max-width:90%; margin-left:2em;}
+
+.blog_list_footer{ text-align: center;}
+.blog_list_footer .blog_footer_tip{ display: block; width: 100%; padding:0.5em 0 0 0; margin-bottom: -0.5em; font-size: 1em;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
