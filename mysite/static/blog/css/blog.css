@@ -112,9 +112,16 @@ div.like .active {
 .blog_list_footer .blog_footer_tip{ display: block; width: 100%; padding:0.5em 0 0 0; margin-bottom: -0.5em; font-size: 1em;}
 
 
+/*随机推荐*/
+.side-list h4{ padding-top: 0.8em; padding-bottom: 0.5em; border-bottom: 1px #ccc solid;}
+.side-list li{ margin-bottom: 0.2em; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;}
 
+/*侧边栏宽度兼容*/
+@media (max-width: 991px){
+    .col-xs-12{padding: 0;} .side-list{padding: 0 1em 0 1.5em;}
+}
 
-
+.blog-border{ border: 1px #ccc solid; border-radius: 6px;}
 
 
 

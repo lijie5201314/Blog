@@ -137,6 +137,44 @@
         </div>
 
     </div>
+
+    <div class="col-md-3 col-xs-12 blog-border">
+            <div class="side-list">
+                <h4>
+                    <span class="glyphicon glyphicon-book"></span>
+                    随机推荐
+                </h4>
+                <ul>
+                    {% for blog in random_blogs %}
+                        <li>
+                            <a href="{% url 'blog:blog_detail' blog.pk %}">
+                                {{ blog.title }}
+                            </a>
+                        </li>
+                    {% empty %}
+
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="side-list">
+                <h4>
+                    <span class="glyphicon glyphicon-book"></span>
+                    猜你喜欢
+                </h4>
+                <ul id="like_blogs_list">
+                    {% for blog in like_blogs %}
+                        <li>
+                            <a href="{% url 'blog:blog_detail' blog.pk %}">
+                                {{ blog.title }}
+                            </a>
+                        </li>
+                    {% empty %}
+
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
 </div>
 
 {#    <div class="container">#}

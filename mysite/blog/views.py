@@ -5,6 +5,7 @@ from django.conf import settings
 from django.db.models import Count
 from read_statistics.utils import read_statistics_once_read
 from django.contrib.contenttypes.models import ContentType
+from likes.models import LikeCount
 # from user.forms import LoginForm
 
 
@@ -76,8 +77,10 @@ def blogs_with_date(request, year, month):
 
 #博客详细信息
 def blog_detail(request, blog_pk):
+    # blog_type = get_object_or_404(BlogType, pk=blog_pk)
     blog = get_object_or_404(Blog, pk=blog_pk)
     read_cookie_key = read_statistics_once_read(request, blog)
+
     blog_content_type = ContentType.objects.get_for_model(blog)
     #comments = Comment.objects.filter(content_type=blog_content_type, object_id=blog.pk, parent=None)
 
@@ -87,6 +90,8 @@ def blog_detail(request, blog_pk):
     # data['reply_comment_id'] = 0
 
     context = {}
+    context['random_blogs'] = Blog.objects.all()[0:7]
+    context['like_blogs'] = Blog.objects.filter(blog_type=blog.blog_type)[0:7]
     context['blog'] = blog
     #下面这已经是因为在在setting中添加了一个全局的弹窗，定义在user的context.processors中
     # context['login_form'] = LoginForm()
