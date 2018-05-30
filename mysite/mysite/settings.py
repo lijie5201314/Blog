@@ -169,3 +169,14 @@ CKEDITOR_CONFIGS = {
         'resize_enabled': False,
     }
 }
+
+#发送邮件配置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = '417005901@qq.com'
+EMAIL_HOST_PASSWORD = 'xkcencighfzybghc'  #授权码
+EMAIL_SUBJECT_PREFIX = '[李杰的博客]'
+EMAIL_USE_TLS = True #与smtp服务通信时，是否启动TLS链接（安全链接）
+
+

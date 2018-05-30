@@ -14,12 +14,14 @@
             {% if  user.is_authenticated %}
                 <h2>{{ user.username }}</h2>
                 <ul>
-                    <li>昵称：<a href="#">修改昵称</a></li>
+                    <li>昵称：{{ user.profile.nickname }}
+                        <a href="{% url 'user:change_nickname' %}?from={{ request.get_full_path }}">修改昵称</a>
+                    </li>
                     <li>
                         邮箱：{% if user.email %}
                         {{ user.email }}
                         {% else %}
-                        未绑定<a href="#">绑定</a>
+                        未绑定<a href="{% url 'user:bind_email' %}?from={{ request.get_full_path }}">绑定</a>
                         {% endif %}
                     </li>
                     <li>
