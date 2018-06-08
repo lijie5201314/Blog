@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block title %}
-    我的网站|首页
+    后悔药的博客
 {% endblock %}
 {% block header-extend %}
     <link rel="stylesheet" href="{% static 'blog/css/home.css' %}">
@@ -15,7 +15,7 @@
     <div class="container">
         <h1>LJ Blog</h1>
         <p>尚未佩妥剑，<span class="hidden-xs">转眼便江湖。</span>愿历尽千帆，归来仍少年</p>
-        <p>江湖人的博客</p>
+        <p>后悔药的博客</p>
     </div>
 </div>
     <div class="container">
@@ -54,8 +54,7 @@
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="active"><a href="javascript:void(0);">联系我</a></li>
                                 <li><a href="javascript:void(0);">趋势图</a></li>
-                                <li><a href="javascript:void(0);">昨日阅读榜</a></li>
-                                <li><a href="javascript:void(0);">Django2.0教程</a></li>
+                                <li><a href="javascript:void(0);">求职历程</a></li>
                             </ul>
                         </div>
                     </div>
@@ -71,7 +70,7 @@
                                         再敲一行代码
                                     </h4>
                                     <p style="margin-bottom: 2em;">突破局限，编写自己的人生</p>
-                                    <p>我的公众号用来写我的思考和感悟。<br>有感悟就写，更新频率可能会比较低。<br>也可通过公众号和我聊天~</p>
+                                    <p>我的博客用来写我的思考和感悟。<br>记录成长的点滴。<br>也可以扫码和我聊天~</p>
                                 </div>
                             </div>
                         </div>
@@ -85,101 +84,13 @@
                             </div>
                         </div>
 
-                        <div class="read-content-item" style="display:none;">
-                            <ul class="list">
 
-                                    <li>
-                                        <span class="glyphicon glyphicon-thumbs-up"></span>
-                                        <span class="read-num">89</span>
-                                        <a href="http://yshblog.com/blog/148" target="_blank">Python爬虫入门 (看这篇就够了)</a>
-                                    </li>
-
-                                    <li>
-                                        <span class="glyphicon glyphicon-fire"></span>
-                                        <span class="read-num">80</span>
-                                        <a href="http://yshblog.com/blog/193" target="_blank">django-ckeditor后台富文本编辑器</a>
-                                    </li>
-
-                                    <li>
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                        <span class="read-num">41</span>
-                                        <a href="http://yshblog.com/blog/117" target="_blank">Python生成pyd文件</a>
-                                    </li>
-
-                                    <li>
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                        <span class="read-num">31</span>
-                                        <a href="http://yshblog.com/blog/156" target="_blank">我的网站搭建(第52天) 使用Redis缓存提速</a>
-                                    </li>
-
-                                    <li>
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                        <span class="read-num">23</span>
-                                        <a href="http://yshblog.com/blog/163" target="_blank">Django初步使用Celery</a>
-                                    </li>
-
-                                    <li>
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                        <span class="read-num">23</span>
-                                        <a href="http://yshblog.com/blog/164" target="_blank">Django Celery定时任务和时间设置</a>
-                                    </li>
-
-                                    <li>
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                        <span class="read-num">22</span>
-                                        <a href="http://yshblog.com/blog/40" target="_blank">Python读写docx文件</a>
-                                    </li>
-
-                                    <li>
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                        <span class="read-num">21</span>
-                                        <a href="http://yshblog.com/blog/41" target="_blank">Python读写utf-8的文本文件</a>
-                                    </li>
-
-                                    <li>
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                        <span class="read-num">19</span>
-                                        <a href="http://yshblog.com/blog/1" target="_blank">我的网站搭建(第1天) Hello Django</a>
-                                    </li>
-
-                                    <li>
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                        <span class="read-num">18</span>
-                                        <a href="http://yshblog.com/blog/44" target="_blank">以图搜图(二)：Python实现pHash算法</a>
-                                    </li>
-
-                                    <li>
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                        <span class="read-num">18</span>
-                                        <a href="http://yshblog.com/blog/52" target="_blank">Django点赞功能实现</a>
-                                    </li>
-
-                                    <li>
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                        <span class="read-num">17</span>
-                                        <a href="http://yshblog.com/blog/178" target="_blank">Django拆分app为多个小app</a>
-                                    </li>
-
-                                    <li>
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                        <span class="read-num">16</span>
-                                        <a href="http://yshblog.com/blog/94" target="_blank">vba正则表达式入门</a>
-                                    </li>
-
-                                    <li>
-                                        <span class="glyphicon glyphicon-arrow-up"></span>
-                                        <span class="read-num">16</span>
-                                        <a href="http://yshblog.com/blog/165" target="_blank">服务器使用Supervisor后台运行Celery</a>
-                                    </li>
-
-                            </ul>
-                        </div>
 
                         <div class="read-content-item" style="display:none;">
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1" style="margin-top:1em;">
-<h4 style="line-height: 1.25em;">我录制的Django2.0教程放在B站。<br>平常工作比较忙，而且为了保证质量。<br>大概3、4天更新一次。<br><br>
-                                    <a href="http://space.bilibili.com/252028233/#/channel/detail?cid=28138" target="_blank">点击前往：Django2.0视频教程</a></h4>
+<h4 style="line-height: 1.25em;">时光匆匆，转眼已经大四。<br>我会把求职历程的心得写下来。<br>希望对大家有所帮助。<br><br>
+                                    </h4>
                                 </div>
                             </div>
                         </div>
@@ -206,7 +117,7 @@
                                 <li>
                                     <span class="glyphicon glyphicon-fire"></span>
                                     <span class="read-num">{{ hot_data.read_num }}</span>
-                                    <a href="{% url 'blog:blog_detail' hot_data.content_object.pk %}">
+                                    <a href="{% url 'blog:blog_detail' hot_data.content_object.pk %}" target="_blank">
                                         {{ hot_data.content_object.title }}
                                     </a>
                                 </li>
@@ -225,7 +136,7 @@
                                 <li>
                                     <span class="glyphicon glyphicon-fire"></span>
                                     <span class="read-num">{{ hot_data.read_num }}</span>
-                                    <a href="{% url 'blog:blog_detail' hot_data.content_object.pk %}">
+                                    <a href="{% url 'blog:blog_detail' hot_data.content_object.pk %}" target="_blank">
                                         {{ hot_data.content_object.title }}
                                     </a>
                                 </li>
@@ -245,7 +156,7 @@
                             <li>
                                 <span class="glyphicon glyphicon-fire"></span>
                                 <span class="read-num">{{ hot_blog.read_num_sum }}</span>
-                                <a href="{% url 'blog:blog_detail' hot_blog.id %}">
+                                <a href="{% url 'blog:blog_detail' hot_blog.id %}" target="_blank">
                                     {{ hot_blog.title }}
                                 </a>
                             </li>
