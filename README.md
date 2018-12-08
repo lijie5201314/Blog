@@ -1,6 +1,6 @@
-# Blog
+# Blog 基于Django的博客网站
 
-基于Django的博客网站
+
 
 一：   
 
